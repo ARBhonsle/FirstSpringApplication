@@ -1,12 +1,13 @@
 package com.example.firstspringapplication;
 
+
+import org.slf4j.Logger;
 import org.springframework.web.bind.annotation.*;
 
-// @Slf4J
 @RestController
 @RequestMapping("/hello")
 public class HelloRestController {
-
+    private static Logger log = org.slf4j.LoggerFactory.getLogger(HelloRestController.class);
     // localhost:8080/hello
     // localhost:8080/hello/
     // localhost:8080/hello/message
@@ -70,11 +71,11 @@ public class HelloRestController {
     //    "rollNo" : 12,
     //    "isActive" : false
     //  }
-    @PutMapping("/put/Student")
-    public Student sayHelloStudent(@RequestBody Student student){
+    @PutMapping("/putStudent")
+    public String sayHelloStudent(@RequestBody Student student){
         // System.out.println(student.display());
-        //log.info(student.display());
-        return student;
+        log.info(student.display());
+        return "Hello "+ student.display();
     }
 
 }
