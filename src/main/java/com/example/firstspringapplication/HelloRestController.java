@@ -52,4 +52,29 @@ public class HelloRestController {
         return "Hello " + firstName + " " + lastName + "!";
     }
 
+    // localhost:8080/hello/post
+    //  JSON body
+    //  {
+    //    "firstName" : "Alex",
+    //    "lastName" : "Ben"
+    //  }
+    @PostMapping("/post")
+    public String sayHello(@RequestBody User user) {
+        return "Hello " + user.getFirstName() + " " + user.getLastName() + "!";
+    }
+
+    // localhost:8080/hello/put/Student
+    //  JSON body
+    //  {
+    //    "name" : "Alex",
+    //    "rollNo" : 12,
+    //    "isActive" : false
+    //  }
+    @PutMapping("/put/Student")
+    public Student sayHelloStudent(@RequestBody Student student){
+        // System.out.println(student.display());
+        //log.info(student.display());
+        return student;
+    }
+
 }
